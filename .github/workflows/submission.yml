@@ -89,12 +89,13 @@ jobs:
     - name: Check return
       run: |
         echo "PASS_LOG=True" >> $GITHUB_ENV
+        echo "linter : ${{ steps.linter.outputs.PASS }}"
 
         declare -a return_list=( \
-          "$steps.linter.outputs.PASS" \
-          "$steps.coverage.outputs.PASS" \
-          "$steps.stable.outputs.PASS" \
-          "$steps.dev.outputs.PASS" \
+          "${{ steps.linter.outputs.PASS }}" \
+          "${{ steps.coverage.outputs.PASS }}" \
+          "${{ steps.stable.outputs.PASS }}" \
+          "${{ steps.dev.outputs.PASS }}" \
         )
         for i in "${return_list[@]}"; do
           if [[ "${i}" != *"True"* ]]; then
