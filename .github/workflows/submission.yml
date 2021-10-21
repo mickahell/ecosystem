@@ -125,7 +125,7 @@ jobs:
         python manager.py generate_readme
 
     - name: Commit changes and create Pull Request
-      if: ${{ env.PASS_LOG == 'True' &&  env.CI == "true" }}
+      if: ${{ env.PASS_LOG == 'True' &&  env.CI == 'true' }}
       id: cpr
       uses: peter-evans/create-pull-request@v3
       with:
