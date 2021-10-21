@@ -89,7 +89,7 @@ jobs:
     - name: Check return
       run: |
         echo "PASS_LOG=True" >> $GITHUB_ENV
-        echo "linter : ${{ steps.linter.outputs.PASS }}"
+        echo "linter : ${steps.linter.outputs.PASS}"
 
         declare -a return_list=( \
           "${{ steps.linter.outputs.PASS }}" \
