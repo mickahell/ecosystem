@@ -1,0 +1,17 @@
+name = "qBraid"
+url = "https://github.com/qBraid/qBraid"
+description = "Ellipsis"
+licence = "Apache License 2.0"
+contact_info = "_No response_"
+alternatives = "_No response_"
+affiliations = "_No response_"
+website = "_No response_"
+labels = [ "_No response_",]
+created_at = 1689106863.076812
+updated_at = 1689106863.076817
+tests_results = []
+styles_results = []
+coverages_results = []
+tier = "Community"
+skip_tests = false
+historical_test_results = []
