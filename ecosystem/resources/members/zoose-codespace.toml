@@ -13,4 +13,3 @@ coverages_results = []
 tier = "Community"
 skip_tests = true
 historical_test_results = []
-stars = 0
