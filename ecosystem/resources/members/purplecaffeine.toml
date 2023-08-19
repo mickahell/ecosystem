@@ -9,10 +9,73 @@ website = "https://icekhan13.github.io/purplecaffeine/index.html"
 labels = [ "plugin", "notebook",]
 created_at = 1688661859.080258
 updated_at = 1688661859.080264
-tests_results = []
 styles_results = []
 coverages_results = []
 tier = "Community"
 skip_tests = false
-historical_test_results = []
 stars = 6
+[[tests_results]]
+passed = true
+test_type = "development"
+package = "qiskit"
+package_version = "0.45.0"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5911114275"
+package_commit_hash = "7bc2bfd4f8dcc436aec5f85641e3ec07be15eb01"
+qiskit_version = "0.45.0"
+timestamp = 1692444989.334286
+
+[[tests_results]]
+passed = true
+test_type = "last passing version"
+package = "qiskit"
+package_version = "0.44.1"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5911114275"
+qiskit_version = "0.44.1"
+timestamp = 1692444989.33923
+
+[[tests_results]]
+passed = true
+test_type = "stable"
+package = "qiskit"
+package_version = "0.44.1"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5911114275"
+qiskit_version = "0.44.1"
+timestamp = 1692444989.339237
+
+[[tests_results]]
+passed = true
+test_type = "standard"
+package = "qiskit"
+package_version = "0.44.1"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5911114275"
+qiskit_version = "0.44.1"
+timestamp = 1692444989.339241
+
+[[historical_test_results]]
+passed = true
+test_type = "stable"
+package = "qiskit"
+package_version = "0.44.1"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5911114275"
+qiskit_version = "0.44.1"
+timestamp = 1692444989.339248
+
+[[historical_test_results]]
+passed = true
+test_type = "standard"
+package = "qiskit"
+package_version = "0.44.1"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5911114275"
+qiskit_version = "0.44.1"
+timestamp = 1692444989.339252
+
+[[historical_test_results]]
+passed = true
+test_type = "development"
+package = "qiskit"
+package_version = "0.45.0"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5911114275"
+package_commit_hash = "7bc2bfd4f8dcc436aec5f85641e3ec07be15eb01"
+qiskit_version = "0.45.0"
+timestamp = 1692444989.334286
+
