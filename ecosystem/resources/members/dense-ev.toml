@@ -8,8 +8,71 @@ affiliations = "University of Illinois at Urbana-Champaign"
 labels = [ "paper implementation",]
 tier = "Community"
 website = "https://github.com/atlytle/dense-ev"
-tests_results = []
 styles_results = []
 coverages_results = []
 skip_tests = false
-historical_test_results = []
+[[tests_results]]
+passed = true
+test_type = "development"
+package = "qiskit"
+package_version = "0.45.0"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5911114298"
+package_commit_hash = "7bc2bfd4f8dcc436aec5f85641e3ec07be15eb01"
+qiskit_version = "0.45.0"
+timestamp = 1692444770.214835
+
+[[tests_results]]
+passed = true
+test_type = "last passing version"
+package = "qiskit"
+package_version = "0.44.1"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5911114298"
+qiskit_version = "0.44.1"
+timestamp = 1692444770.214841
+
+[[tests_results]]
+passed = true
+test_type = "stable"
+package = "qiskit"
+package_version = "0.44.1"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5911114298"
+qiskit_version = "0.44.1"
+timestamp = 1692444770.214844
+
+[[tests_results]]
+passed = true
+test_type = "standard"
+package = "qiskit"
+package_version = "0.42.1"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5911114298"
+qiskit_version = "0.42.1"
+timestamp = 1692444770.20883
+
+[[historical_test_results]]
+passed = true
+test_type = "stable"
+package = "qiskit"
+package_version = "0.44.1"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5911114298"
+qiskit_version = "0.44.1"
+timestamp = 1692444770.21485
+
+[[historical_test_results]]
+passed = true
+test_type = "development"
+package = "qiskit"
+package_version = "0.45.0"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5911114298"
+package_commit_hash = "7bc2bfd4f8dcc436aec5f85641e3ec07be15eb01"
+qiskit_version = "0.45.0"
+timestamp = 1692444770.214854
+
+[[historical_test_results]]
+passed = true
+test_type = "standard"
+package = "qiskit"
+package_version = "0.42.1"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5911114298"
+qiskit_version = "0.42.1"
+timestamp = 1692444770.20883
+
