@@ -9,10 +9,35 @@ website = "https://icekhan13.github.io/purplecaffeine/index.html"
 labels = [ "plugin", "notebook",]
 created_at = 1688661859.080258
 updated_at = 1688661859.080264
-tests_results = []
 styles_results = []
 coverages_results = []
 tier = "Community"
 skip_tests = false
-historical_test_results = []
 stars = 6
+[[tests_results]]
+passed = true
+test_type = "last passing version"
+package = "qiskit"
+package_version = "0.44.1"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5910992059"
+qiskit_version = "0.44.1"
+timestamp = 1692442671.418165
+
+[[tests_results]]
+passed = true
+test_type = "stable"
+package = "qiskit"
+package_version = "0.44.1"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5910992059"
+qiskit_version = "0.44.1"
+timestamp = 1692442671.41469
+
+[[historical_test_results]]
+passed = true
+test_type = "stable"
+package = "qiskit"
+package_version = "0.44.1"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5910992059"
+qiskit_version = "0.44.1"
+timestamp = 1692442671.41469
+
