@@ -17,6 +17,7 @@ stars = 6
 [[tests_results]]
 passed = true
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 test_type = "last passing version"
 package = "qiskit"
 package_version = "0.44.1"
@@ -57,5 +58,24 @@ package_version = "0.44.1"
 logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5910992034"
 qiskit_version = "0.44.1"
 timestamp = 1692442703.288483
+>>>>>>> Stashed changes
+=======
+test_type = "development"
+package = "qiskit"
+package_version = "0.45.0"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5910992078"
+package_commit_hash = "7bc2bfd4f8dcc436aec5f85641e3ec07be15eb01"
+qiskit_version = "0.45.0"
+timestamp = 1692442864.559029
+
+[[historical_test_results]]
+passed = true
+test_type = "development"
+package = "qiskit"
+package_version = "0.45.0"
+logs_link = "https://github.com/mickahell/ecosystem/actions/runs/5910992078"
+package_commit_hash = "7bc2bfd4f8dcc436aec5f85641e3ec07be15eb01"
+qiskit_version = "0.45.0"
+timestamp = 1692442864.559029
 >>>>>>> Stashed changes
 
