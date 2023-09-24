@@ -1,77 +1,14 @@
 name = "qdao"
 url = "https://github.com/Zhaoyilunnn/qdao"
-description = "A lightweight framework to enable configurable memory consumption when simulating large quantum circuits."
+description = ".."
 licence = "Apache License 2.0"
-contact_info = "zyilun8@gmail.com"
+contact_info = "_No response_"
 alternatives = "_No response_"
-affiliations = "Institute of Computing Technology, Chinese Academy of Sciences."
-labels = [ "Circuit simulator",]
+affiliations = "_No response_"
+labels = []
 tier = "Community"
+tests_results = []
 styles_results = []
 coverages_results = []
 skip_tests = false
-[[tests_results]]
-passed = true
-test_type = "development"
-package = "qiskit"
-package_version = "0.45.0"
-logs_link = "https://github.com/qiskit-community/ecosystem/actions/runs/6233534346"
-package_commit_hash = "2d3632fee633413bb1883e411d1a26f76fc54e92"
-qiskit_version = "0.45.0"
-timestamp = 1695115612.145325
-
-[[tests_results]]
-passed = true
-test_type = "last passing version"
-package = "qiskit"
-package_version = "0.44.1"
-logs_link = "https://github.com/qiskit-community/ecosystem/actions/runs/6233534346"
-qiskit_version = "0.44.1"
-timestamp = 1695115685.031151
-
-[[tests_results]]
-passed = true
-test_type = "stable"
-package = "qiskit"
-package_version = "0.44.1"
-logs_link = "https://github.com/qiskit-community/ecosystem/actions/runs/6233534346"
-qiskit_version = "0.44.1"
-timestamp = 1695115256.670505
-
-[[tests_results]]
-passed = true
-test_type = "standard"
-package = "qiskit"
-package_version = "0.39.0"
-logs_link = "https://github.com/qiskit-community/ecosystem/actions/runs/6233534346"
-qiskit_version = "0.39.0"
-timestamp = 1695115682.64762
-
-[[historical_test_results]]
-passed = true
-test_type = "standard"
-package = "qiskit"
-package_version = "0.39.0"
-logs_link = "https://github.com/qiskit-community/ecosystem/actions/runs/6233534346"
-qiskit_version = "0.39.0"
-timestamp = 1695115682.64762
-
-[[historical_test_results]]
-passed = true
-test_type = "stable"
-package = "qiskit"
-package_version = "0.44.1"
-logs_link = "https://github.com/qiskit-community/ecosystem/actions/runs/6233534346"
-qiskit_version = "0.44.1"
-timestamp = 1695115256.670505
-
-[[historical_test_results]]
-passed = true
-test_type = "development"
-package = "qiskit"
-package_version = "0.45.0"
-logs_link = "https://github.com/qiskit-community/ecosystem/actions/runs/6233534346"
-package_commit_hash = "2d3632fee633413bb1883e411d1a26f76fc54e92"
-qiskit_version = "0.45.0"
-timestamp = 1695115612.145325
-
+historical_test_results = []
