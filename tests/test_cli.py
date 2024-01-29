@@ -1,4 +1,4 @@
-"""Tests for manager cli."""
+"""Tests for cli."""
 import os
 import io
 from unittest import TestCase
@@ -7,7 +7,7 @@ from contextlib import redirect_stdout
 import responses
 
 from ecosystem.daos import DAO
-from ecosystem.manager import Manager
+from ecosystem.cli import CliCI, CliTests, CliMembers, CliWebsite
 from ecosystem.models import TestResult, Tier, TestType
 from ecosystem.models.repository import Repository
 from ecosystem.models.test_results import Package
@@ -65,13 +65,11 @@ def get_community_fail_repo() -> Repository:
     )
 
 
-class TestManager(TestCase):
-    """Test class for manager cli."""
+class TestCli(TestCase):
+    """Test class for cli."""
 
     def setUp(self) -> None:
         self.path = "../resources"
-        self.members_path = "{}/members.json".format(self.path)
-        self._delete_members_json()
         if not os.path.exists(self.path):
             os.makedirs(self.path)
         self.current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -84,24 +82,14 @@ class TestManager(TestCase):
         ) as issue_body_file:
             self.issue_body_2 = issue_body_file.read()
 
-    def tearDown(self) -> None:
-        self._delete_members_json()
-
-    def _delete_members_json(self):
-        """Deletes database file."""
-        if os.path.exists(self.members_path):
-            os.remove(self.members_path)
-        if not os.path.exists(self.path):
-            os.makedirs(self.path)
-
     def test_build_website(self):
         """Test the website builder function."""
-        manager = Manager(root_path=f"{os.path.abspath(os.getcwd())}/../")
-        self.assertIsInstance(manager.build_website(), str)
+        cli_website = CliWebsite(root_path=f"{os.path.abspath(os.getcwd())}/../")
+        self.assertIsInstance(cli_website.build_website(), str)
 
     def test_parser_issue(self):
         """Tests issue parsing function.
-        Function: Manager
+        Function: Cli
                 -> parser_issue
         Args:
             issue_body
@@ -110,7 +98,7 @@ class TestManager(TestCase):
         # Issue 1
         captured_output = io.StringIO()
         with redirect_stdout(captured_output):
-            Manager.parser_issue(self.issue_body)
+            CliCI.parser_issue(self.issue_body)
 
         output_value = captured_output.getvalue().split("\n")
 
@@ -140,7 +128,7 @@ class TestManager(TestCase):
         # Issue 2
         captured_output = io.StringIO()
         with redirect_stdout(captured_output):
-            Manager.parser_issue(self.issue_body_2)
+            CliCI.parser_issue(self.issue_body_2)
 
         output_value = captured_output.getvalue().split("\n")
 
@@ -169,7 +157,7 @@ class TestManager(TestCase):
     @responses.activate
     def test_dispatch_repository(self):
         """Test github dispatch event.
-        Function: Manager
+        Function: Cli
                 -> dispatch_check_workflow
         Args:
             Infos about repo
@@ -188,8 +176,8 @@ class TestManager(TestCase):
                 "content_type": "application/json",
             }
         )
-        manager = Manager(root_path=f"{os.path.abspath(os.getcwd())}/../")
-        response = manager.dispatch_check_workflow(
+        cli_ci = CliCI(root_path=f"{os.path.abspath(os.getcwd())}/../")
+        response = cli_ci.dispatch_check_workflow(
             repo_url="https://github.com/Qiskit-demo/qiskit-demo",
             branch_name="awesome_branch",
             tier="COMMUNITY",
@@ -201,7 +189,6 @@ class TestManager(TestCase):
 
     def test_update_badges(self):
         """Tests creating badges."""
-        self._delete_members_json()
 
         commu_success = get_community_repo()
         commu_failed = get_community_fail_repo()
@@ -211,14 +198,14 @@ class TestManager(TestCase):
         dao.write(commu_success)
         dao.write(commu_failed)
 
-        manager = Manager(root_path=os.path.join(self.current_dir, ".."))
-        manager.resources_dir = "../resources"
-        manager.dao = dao
+        cli_members = CliMembers(root_path=os.path.join(self.current_dir, ".."))
+        cli_members.resources_dir = "../resources"
+        cli_members.dao = dao
 
         # create badges
-        manager.update_badges()
+        cli_members.update_badges()
 
-        badges_folder_path = "{}/badges".format(manager.current_dir)
+        badges_folder_path = "{}/badges".format(cli_members.current_dir)
         self.assertTrue(
             os.path.isfile(f"{badges_folder_path}/{commu_success.name}.svg")
         )
@@ -240,7 +227,7 @@ class TestManager(TestCase):
 
     @responses.activate
     def test_fetch_and_update_main_projects(self):
-        """Tests manager function for fetching tests results."""
+        """Tests cli function for fetching tests results."""
         owner = "Qiskit"
         repos_and_test_names = [
             ("qiskit-nature", "Nature%2520Unit%2520Tests"),
@@ -283,5 +270,5 @@ class TestManager(TestCase):
             }
         )
 
-        manager = Manager(root_path=f"{os.path.abspath(os.getcwd())}/../")
-        self.assertIsNone(manager.fetch_and_update_main_tests_results())
+        cli_tests = CliTests(root_path=f"{os.path.abspath(os.getcwd())}/../")
+        self.assertIsNone(cli_tests.fetch_and_update_main_tests_results())

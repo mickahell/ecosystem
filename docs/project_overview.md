@@ -31,12 +31,12 @@ Entrypoint is ``manager.py`` file in the root of repository.
 
 Example of commands:
 ```shell
-python manager.py python_dev_tests https://github.com/IceKhan13/demo-implementation --python_version=py39
-python manager.py python_stable_tests https://github.com/IceKhan13/demo-implementation --python_version=py39
+python manager.py tests python_dev_tests https://github.com/IceKhan13/demo-implementation --python_version=py39
+python manager.py tests python_stable_tests https://github.com/IceKhan13/demo-implementation --python_version=py39
 ```
 or in general
 ```shell
-python manager.py <NAME_OF_FUNCTION_IN_MANAGER_FILE> <POSITIONAL_ARGUMENT> [FLAGS]
+python manager.py <CMD> <NAME_OF_FUNCTION_IN_MANAGER_FILE> <POSITIONAL_ARGUMENT> [FLAGS]
 ```
 
 ### Adding project to the ecosystem
@@ -109,24 +109,17 @@ https://github.com/mickahell/qiskit-ecosystem_template.
 We store each member of the ecosystem as a TOML file under
 [`ecosystem/resources/members`](https://github.com/qiskit-community/ecosystem/blob/main/ecosystem/resources/members);
 these are the files you should edit when adding / updating members to the
-ecosystem. Access to this file is handled through the
+ecosystem. Access to these files is handled programmatically through the
 [`DAO`](https://github.com/qiskit-community/ecosystem/blob/main/ecosystem/daos/dao.py)
 class.
 
-The qiskit.org page pulls information from the compiled
-[`members.json`](https://github.com/qiskit-community/ecosystem/blob/main/ecosystem/resources/members.json))
-file. This file should be compiled automatically by an action on pushing to
-`main`, but you can also compile it locally (e.g. for testing) using
+To generate the webpage from the TOML files, run:
 
 ```sh
-python -m manager recompile
+tox -e website
 ```
 
-You shouldn't edit `members.json` manually.
-
-If you somehow get a merge conflict in `members.json`, don't try to manually
-resolve the conflict. Instead, merge the branch, then run `python -m manager
-recompile` and add the file to resolve the conflict.
+Then open `website/index.html` in your browser.
 
 ### Tests
 
@@ -136,21 +129,21 @@ There are 3 type of tests for project: `STANDARD`, `DEV` and `STABLE`.
 
 CLI command:
 ```shell
-python manager.py python_standard_tests <REPO_URL> --run_name=<NAME_OF_RUN> --python_version=py39 --tier=<TIER>
+python manager.py tests python_standard_tests <REPO_URL> --run_name=<NAME_OF_RUN> --python_version=py39 --tier=<TIER>
 ```
 
 `DEV` - runs tests with default requirements for project + dev version of qiskit-terra installed
 
 CLI command:
 ```shell
-python manager.py python_dev_tests <REPO_URL> --run_name=<NAME_OF_RUN> --python_version=py39 --tier=<TIER>
+python manager.py tests python_dev_tests <REPO_URL> --run_name=<NAME_OF_RUN> --python_version=py39 --tier=<TIER>
 ```
 
 `STABLE` - runs tests with default requirements for project + latest stable version of qiskit-terra installed
 
 CLI command:
 ```shell
-python manager.py python_stable_tests <REPO_URL> --run_name=<NAME_OF_RUN> --python_version=py39 --tier=<TIER>
+python manager.py tests python_stable_tests <REPO_URL> --run_name=<NAME_OF_RUN> --python_version=py39 --tier=<TIER>
 ```
 
 You can see full setup on test running in [GitHub Action](https://github.com/qiskit-community/ecosystem/blob/main/.github/actions/run-tests/action.yml)
